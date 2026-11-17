@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node serve.mjs",
     "build": "node build.mjs",
-    "check": "node --check app.js && node --check curriculum.js"
+    "check": "node --check app.js && node --check curriculum.js && node --check labs.js",
+    "test": "node verify.mjs"
   }
 }
