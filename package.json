@@ -1,0 +1,10 @@
+{
+  "name": "modelcraft-ai-roadmap",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "node serve.mjs",
+    "build": "node build.mjs",
+    "check": "node --check app.js && node --check curriculum.js"
+  }
+}
