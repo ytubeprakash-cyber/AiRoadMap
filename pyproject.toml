@@ -1,0 +1,26 @@
+[project]
+name = "modelcraft-lab"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Saurav Prakash", email = "saurav.prakash@routeware.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5.5",
+]
+
+[project.scripts]
+modelcraft-lab = "modelcraft_lab:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.4.0",
+    "jupyterlab>=4.6.6",
+    "pytest>=9.2.0",
+]
