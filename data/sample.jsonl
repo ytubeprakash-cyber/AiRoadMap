@@ -1,0 +1,5 @@
+{"prompt": "2+2?", "answer": "4", "tokens": 3}
+{"prompt": "Capital of France?", "answer": "Paris", "tokens": 4}
+
+{"prompt": "Color of the sky?", "answer": "blue", "tokens": 5}
+{"prompt": "Largest planet?", "answer": "Jupiter", "tokens": 3}
