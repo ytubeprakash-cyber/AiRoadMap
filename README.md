@@ -48,6 +48,28 @@ Version 2 replaced weeks 9–12 (CS336 systems) with LLM application engineering
 
 Project milestones: character LM → tiny GPT from random weights → tool-using agent with MCP → small-model LoRA fine-tuning with held-out evaluation → mobile assistant with RAG and a separately hosted inference API. Do not upload confidential company data to public repositories or model hosts.
 
+## Week 1 · Task 4 — ML math cheat sheet
+
+| Concept | What to remember | Worked example |
+| --- | --- | --- |
+| **Mean** | Add the values and divide by how many there are. Use it to summarize per-example losses in a batch. | Token counts `[2, 4, 6]` → `(2 + 4 + 6) / 3 = 4`. |
+| **Population variance** | Average the squared distances from the mean. LayerNorm uses variance to scale features. | `[2, 4, 6]` → `(4 + 0 + 4) / 3 = 8/3 ≈ 2.67`. `[4, 4, 4]` has the same mean and zero variance. |
+| **Probability distribution** | Each probability is nonnegative and the total is 1. A language model assigns one probability per possible next token. | After `I like`, the model could give `tea` 60%, `coffee` 30%, and `water` 10%. Sampling can pick any of them. |
+| **Softmax** | Convert raw scores (logits) into probabilities. Exponentiate each score, then divide by the sum of the exponentials. | Logits `[2, 1, 0]` → exponentials `[7.39, 2.72, 1.00]` → probabilities `[66.5%, 24.5%, 9.0%]`. |
+| **Gradient** | The slope of the loss with respect to each parameter. A positive slope means a small increase in that parameter raises the loss. | For `L(w) = (w − 3)²`, the derivative is `2(w − 3)`. It is `+4` at `w = 5` and `−2` at `w = 2`. |
+| **Gradient descent** | Update each weight with `weight − learning_rate × gradient`, then recompute the gradient at the new weights. | With learning rate `0.25`, the first update is `5 − 0.25 × 4 = 4`. After two steps, weights go `5 → 4 → 3.5` and losses go `4 → 1 → 0.25`. |
+
+**Softmax in code.** Subtract the largest logit from every logit before exponentiating. The probabilities stay the same, and the exponentials cannot overflow.
+
+**How it fits together.** The model produces logits. Softmax gives next-token probabilities. The loss penalizes low probability on the actual next token. Backpropagation computes the gradients, and the optimizer updates the weights.
+
+<details>
+<summary>Quick check: what happens at w = 2 with a learning rate of 0.25?</summary>
+
+The gradient is `−2`, so the next weight is `2 − 0.25 × (−2) = 2.5`. The loss falls from `1` to `0.25`.
+
+</details>
+
 ## Customize
 
 - `curriculum.js`: weeks, tasks, concepts, projects, interview bank and resource links.
