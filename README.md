@@ -6,7 +6,7 @@ Hands-on notebooks for the [AI Roadmap](https://airoadmap-taupe.vercel.app/#road
 | --- | --- |
 | [Week 1 · NumPy and training math](notebooks/week01_numpy.ipynb) | Compare Python and NumPy matrix multiplication, summarize app launch times, and see how the learning rate changes a gradient descent step. |
 | [Week 2 · Your first forward pass](notebooks/week02_tensors.ipynb) | Pass two sessions through the same weights and biases. Predict the second row of output, then run the cell to check it. |
-| [Week 2 · Train a classifier](notebooks/week02_classifier.ipynb) | Train a model on simulated app sessions and compare its validation accuracy with a majority-label baseline. |
+| [Week 2 · Train a classifier](notebooks/week02_classifier.ipynb) | Train a model on simulated app sessions, compare it with a baseline, and plot loss curves for three learning rates. |
 
 ## Run the notebooks
 
@@ -17,10 +17,10 @@ git clone --branch branchx https://github.com/ytubeprakash-cyber/AiRoadMap.git
 cd AiRoadMap
 uv sync --locked
 uv run --locked pytest
-uv run --locked --with torch jupyter lab
+uv run --locked --with torch --with matplotlib jupyter lab
 ```
 
-The last command includes PyTorch for Week 2. In JupyterLab, open a notebook from the table above, select the project’s Python kernel, and choose **Kernel → Restart Kernel and Run All Cells**.
+The last command includes PyTorch and Matplotlib for Week 2. In JupyterLab, open a notebook from the table above, select the project’s Python kernel, and choose **Kernel → Restart Kernel and Run All Cells**.
 
 ## Week 2 · From session data to four scores
 
