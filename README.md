@@ -59,6 +59,14 @@ Validation loss fell from 0.543 to 0.306. On the same 45 validation sessions, th
 
 ![Training and validation loss across four epochs, followed by validation accuracy of 91.1% versus 44.4% for the baseline.](docs/images/week02-task03-results.png)
 
+## Week 2 Task 4 — Compare learning rates
+
+Train fresh models with learning rates of 0.01, 0.1, and 1.0. Give every run the same data split, starting weights, and 100 epochs. Record training and validation losses after each update, then select the rate with the lowest validation loss at epoch 100.
+
+The infographic uses illustrative curves to explain the axes, colors, and endpoint comparison. Use the notebook’s measured curves to choose your rate.
+
+![Learning rate comparison with illustrated training and validation loss curves, a guide to the graph axes, and the final validation loss selection rule.](docs/images/week02-task04-learning-rates.png)
+
 ## Week 1 · Check your results
 
 - **Matrix multiplication.** Compare the Python loop and NumPy outputs before comparing their timings. Benchmark times vary by machine.
