@@ -43,6 +43,16 @@ Going from left to right, the loss falls by 0.008 while the weight increases by 
 
 ![Number line showing the two epsilon steps around 1, the slope calculation, and the weight update using PyTorch’s gradient.](docs/images/week02-task02-gradient.png)
 
+## Week 2 Task 3 — Train your first classifier
+
+Will a user return tomorrow? Follow one session through the infographic. The green card shows how the synthetic dataset gets its answer. The orange card shows the model’s guess using example starting weights. The model sees the session and its label during training. It has to learn its own weights.
+
+![Worked classifier example. For the session [1, 0, −1], the hidden rule gives label 1, while the model scores it −0.2 and predicts 0. The training loop uses the average loss across 210 sessions to update three weights and a bias.](docs/images/week02-task03-classifier.png)
+
+**What changes on the next pass?** The session and its correct label stay the same. Task 1’s forward pass gives a score. Task 2’s gradients tell the optimizer how to adjust each weight and the bias. Next time the model sees that session, the updated weights can give it a different score.
+
+**How do you check progress?** Compare training loss at epochs 1 and 100. Then check whether the model predicts the 45 validation labels more accurately than always guessing the most common training label. Save the 45 test sessions for the final evaluation.
+
 ## Week 1 · Check your results
 
 - **Matrix multiplication.** Compare the Python loop and NumPy outputs before comparing their timings. Benchmark times vary by machine.
