@@ -53,6 +53,12 @@ Will a user return tomorrow? Follow one session through the infographic. The gre
 
 **How do you check progress?** Compare training loss at epochs 1 and 100. Then check whether the model predicts the 45 validation labels more accurately than always guessing the most common training label. Save the 45 test sessions for the final evaluation.
 
+### Did my classifier learn?
+
+Validation loss fell from 0.543 to 0.306. On the same 45 validation sessions, the classifier made 41 correct predictions and the majority-label baseline made 20.
+
+![Training and validation loss across four epochs, followed by validation accuracy of 91.1% versus 44.4% for the baseline.](docs/images/week02-task03-results.png)
+
 ## Week 1 · Check your results
 
 - **Matrix multiplication.** Compare the Python loop and NumPy outputs before comparing their timings. Benchmark times vary by machine.
