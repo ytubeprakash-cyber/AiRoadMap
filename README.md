@@ -34,6 +34,14 @@ Follow the fourth column in the infographic. All three weights are 1, so the sec
 
 ![Forward pass walkthrough showing the weight matrix, the bias added to each score, and where the calculation fits in a training loop.](docs/images/first-forward-pass.png)
 
+## Week 2 Task 2 — Let PyTorch compute the gradient
+
+Think of `w` as a slider starting at 1. To estimate the slope of `loss = (w - 3) ** 2`, try two nearby settings while keeping the original weight at 1. With `epsilon = 0.001`, those settings are 0.999 and 1.001. They are **two tiny steps apart**, so the denominator is `2 * epsilon`.
+
+Going from left to right, the loss falls by 0.008 while the weight increases by 0.002. Their ratio is −4, the same gradient PyTorch puts in `w.grad` after `loss.backward()`. With a learning rate of 0.1, the next weight is 1.4 and the loss falls from 4.00 to 2.56.
+
+![Number line showing the two epsilon steps around 1, the slope calculation, and the weight update using PyTorch’s gradient.](docs/images/week02-task02-gradient.png)
+
 ## Week 1 · Check your results
 
 - **Matrix multiplication.** Compare the Python loop and NumPy outputs before comparing their timings. Benchmark times vary by machine.
