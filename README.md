@@ -1,24 +1,43 @@
 # Modelcraft Lab
 
-Week 1 exercises for the AI Roadmap. This branch covers Python data utilities, matrix multiplication, and the math behind a training step.
+Hands-on notebooks for the [AI Roadmap](https://airoadmap-taupe.vercel.app/#roadmap). Start with a dot product in NumPy, then use the same idea in PyTorch to turn an app session into four scores.
 
-## Run from a fresh checkout
+| Lab | What you’ll do |
+| --- | --- |
+| [Week 1 · NumPy and training math](notebooks/week01_numpy.ipynb) | Compare Python and NumPy matrix multiplication, summarize app launch times, and see how the learning rate changes a gradient descent step. |
+| [Week 2 · Your first forward pass](notebooks/week02_tensors.ipynb) | Pass two sessions through the same weights and biases. Predict the second row of output, then run the cell to check it. |
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/). The project uses Python 3.12 and pins dependency versions in `uv.lock`.
+## Run the notebooks
+
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then run the following commands. The lab uses Python 3.12.
 
 ```bash
 git clone --branch branchx https://github.com/ytubeprakash-cyber/AiRoadMap.git
 cd AiRoadMap
 uv sync --locked
 uv run --locked pytest
-uv run --locked jupyter lab
+uv run --locked --with torch jupyter lab
 ```
 
-In JupyterLab, open [the Week 1 notebook](notebooks/week01_numpy.ipynb), select the Python kernel from the project environment, and choose **Kernel → Restart Kernel and Run All Cells**.
+The last command includes PyTorch for Week 2. In JupyterLab, open a notebook from the table above, select the project’s Python kernel, and choose **Kernel → Restart Kernel and Run All Cells**.
 
-## What to check
+## Week 2 · From session data to four scores
 
-- The notebook compares dot products, shows which matrix shapes can be multiplied, and times the Python loop and NumPy versions. Benchmark timings vary by machine.
-- The statistics example reports a mean of 200 ms, a population variance of 5,000 ms², and 40% of the observed launches above 200 ms.
-- The gradient descent example reduces loss from 4.00 to 2.56 at a learning rate of 0.1. At 1.1, the update overshoots and loss rises to 5.76.
-- The tests check the linear algebra and JSONL helpers. [Sample JSONL data](data/sample.jsonl) is included.
+Each row of `X` holds three measurements in order: minutes in the app, screens visited, and clicks. Each column of `W` supplies the weights for one score. With two sessions and four scores, `X @ W` has shape `(2, 4)`. Adding `bias` adds the same four values to each row.
+
+| Session input | Weighted sums (`X @ W`) | After adding `[10, 20, 30, 40]` |
+| --- | --- | --- |
+| `[1, 2, 3]` | `[1, 2, 3, 6]` | `[11, 22, 33, 46]` |
+| `[4, 5, 6]` | `[4, 5, 6, 15]` | `[14, 25, 36, 55]` |
+
+Follow the fourth column in the infographic. All three weights are 1, so the second session’s fourth score is `4 + 5 + 6 + 40 = 55`.
+
+![Forward pass walkthrough showing the weight matrix, the bias added to each score, and where the calculation fits in a training loop.](docs/images/first-forward-pass.png)
+
+## Week 1 · Check your results
+
+- **Matrix multiplication.** Compare the Python loop and NumPy outputs before comparing their timings. Benchmark times vary by machine.
+- **Launch times.** The sample has a mean of 200 ms and a population variance of 5,000 ms². Of the observed launches, 40% took longer than 200 ms.
+- **Gradient descent.** Starting from a loss of 4.00, one update at a learning rate of 0.1 brings it down to 2.56. Try 1.1 and watch the step overshoot, raising the loss to 5.76.
+
+The [linear algebra helpers](src/modelcraft_lab/linalg.py) and [JSONL utilities](src/modelcraft_lab/jsonl.py) have [tests](tests/). Use the [sample JSONL file](data/sample.jsonl) to practice reading one record at a time.
