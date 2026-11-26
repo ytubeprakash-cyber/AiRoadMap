@@ -67,6 +67,10 @@ The infographic uses illustrative curves to explain the axes, colors, and endpoi
 
 ![Learning rate comparison with illustrated training and validation loss curves, a guide to the graph axes, and the final validation loss selection rule.](docs/images/week02-task04-learning-rates.png)
 
+Watch how each learning rate changes the training and validation curves over the epochs.
+
+![Animation showing how learning rate shapes training and validation loss curves.](docs/images/week02-learning-rate-loss-curves.gif)
+
 ## Week 1 · Check your results
 
 - **Matrix multiplication.** Compare the Python loop and NumPy outputs before comparing their timings. Benchmark times vary by machine.
