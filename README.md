@@ -71,7 +71,8 @@ The infographic uses illustrative curves to explain the axes, colors, and endpoi
 
 ![Learning rate comparison with illustrated training and validation loss curves, a guide to the graph axes, and the final validation loss selection rule.](docs/images/week02-task04-learning-rates.png)
 
-[Open the learning rate curve reference](docs/images/week02-learning-rate-loss-curves.gif) (a single-frame GIF, displayed as a still image).
+[Open the learning rate curve reference]<img width="640" height="360" alt="How learning rate shapes the loss curves" src="https://github.com/user-attachments/assets/327d743a-ec08-44f5-ada4-1a63dec37e79" />
+
 
 ## Week 1 · Check your results
 
