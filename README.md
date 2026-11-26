@@ -74,6 +74,12 @@ The infographic uses illustrative curves to explain the axes, colors, and endpoi
 [Open the learning rate curve reference]<img width="640" height="360" alt="How learning rate shapes the loss curves" src="https://github.com/user-attachments/assets/327d743a-ec08-44f5-ada4-1a63dec37e79" />
 
 
+## Week 2 Task 5 — Save and reload a checkpoint
+
+Task 4 selected a learning rate from validation loss. Train again with the chosen rate, then save the learned weights and bias alongside the optimizer settings and completed epoch. Load those saved values into fresh model and optimizer objects. Score the same validation sessions with both models to check that the predictions match.
+
+![Four steps in saving and restoring a trained classifier, from retraining with the chosen learning rate through checking that original and reloaded scores match.](docs/images/week02-task05-checkpoint.png)
+
 ## Week 1 · Check your results
 
 - **Matrix multiplication.** Compare the Python loop and NumPy outputs before comparing their timings. Benchmark times vary by machine.
