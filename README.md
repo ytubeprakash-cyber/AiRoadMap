@@ -63,13 +63,15 @@ Validation loss fell from 0.543 to 0.306. On the same 45 validation sessions, th
 
 Train fresh models with learning rates of 0.01, 0.1, and 1.0. Give every run the same data split, starting weights, and 100 epochs. Record training and validation losses after each update, then select the rate with the lowest validation loss at epoch 100.
 
+**Training loss** is the average prediction error on the 210 sessions the model learns from. The optimizer updates its weights using gradients computed from these sessions. A falling training loss shows that the model is fitting its practice examples better.
+
+**Validation loss** is the average prediction error on 45 separate sessions that the optimizer does not use for weight updates. Check it after each epoch to see how the model handles unseen examples. Compare the final validation losses to select a learning rate. If training loss falls while validation loss rises, the model may be overfitting.
+
 The infographic uses illustrative curves to explain the axes, colors, and endpoint comparison. Use the notebook’s measured curves to choose your rate.
 
 ![Learning rate comparison with illustrated training and validation loss curves, a guide to the graph axes, and the final validation loss selection rule.](docs/images/week02-task04-learning-rates.png)
 
-Watch how each learning rate changes the training and validation curves over the epochs.
-
-![Animation showing how learning rate shapes training and validation loss curves.](docs/images/week02-learning-rate-loss-curves.gif)
+[Open the learning rate curve reference](docs/images/week02-learning-rate-loss-curves.gif) (a single-frame GIF, displayed as a still image).
 
 ## Week 1 · Check your results
 
